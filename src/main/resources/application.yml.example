@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: book-api
+
+  datasource:
+    # 复制这个文件为 application.yml，填上你自己的数据库信息
+    url: jdbc:mysql://localhost:3306/study
+    username: root
+    password: 你的数据库密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  sql:
+    init:
+      mode: never
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    root: info
+    org.example.demo08.mapper: debug
