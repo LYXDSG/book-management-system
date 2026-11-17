@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.dao.DuplicateKeyException;
 
 import java.util.stream.Collectors;
 
@@ -39,6 +40,12 @@ public class GlobalExceptionHandler {
         log.warn("参数校验失败：{}",detail);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                              .body(Result.fail(400,"参数校验失败"+detail));
+    }
+
+    //4.新增一个数据库并发插入重复的报错
+    @ExceptionHandler(DuplicateKeyException.class)
+    public Result<Void> handleDuplicate(DuplicateKeyException e){
+        return Result.fail(400,"数据已存在，请勿重复提交");
     }
 
     //3.兜底，上面的异常都没接住就触发

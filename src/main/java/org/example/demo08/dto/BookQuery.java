@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Min;
 import lombok.Data;
 import org.springdoc.core.converters.models.Sort;
 
-@Data
+
 
 public class BookQuery {
 

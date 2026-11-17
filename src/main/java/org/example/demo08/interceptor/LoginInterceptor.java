@@ -7,7 +7,7 @@ import org.example.demo08.common.TokenStore;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
-//拦截器属于Tomcat管理，在controller之前执行，
+//拦截器属于SpringMVC管理，在controller之前执行，
 @Service
 
 public class LoginInterceptor implements HandlerInterceptor {

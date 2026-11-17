@@ -31,7 +31,7 @@ public class BookServiceImpl implements BookService {
         if(total==0) return new PageResult<>(0,query.getPage(),query.getSize(), List.of());
 
         //(3)再查当前页数据： offset由BookQuery算好，Service不关心公式细节
-        List<Book> list=bookMapper.pageByKeyword(keyword,query.offset(),query.getSize(),query.getSortBy(),query.getOrder());
+        List<Book> list=bookMapper.pageByKeyword(keyword,query.offset(),query.getSize(),query.safeSortBy(),query.safeOrder());
         //Mapper接口类的实现类由MyBatis自动生成，直接用方法就行
         //MyBatis是如何生成具体实现类的，实现类里面的逻辑是啥，是SQL语句决定的吗
         return new PageResult<>(total,query.getPage(),query.getSize(),list);

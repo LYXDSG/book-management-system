@@ -19,7 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/api/**")
                 //只管/api下的接口
-                .excludePathPatterns("/api/auth/login");
+                .excludePathPatterns("/api/auth/login","/api/auth/register");
                 //登录接口本身当然不能要求登录
     }
     /*

@@ -48,7 +48,7 @@ public interface BookMapper {
 
 
     //修改：create_time不动（插入时间），update_time由数据库自动刷新，所以都不填入参数
-    @Update("update book set title =#{title},author=#{author},price=#{price},+" +
+    @Update("update book set title =#{title},author=#{author},price=#{price}, " +
             "stock=#{stock} where id =#{id}")
     int update(Book book);
 
